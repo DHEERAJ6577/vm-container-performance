@@ -1,0 +1,4 @@
+metric,value
+VM mean events/sec,7450.908
+Docker mean events/sec,7474.892
+Docker difference vs VM (%),0.3218936537667552
