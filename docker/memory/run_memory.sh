@@ -4,9 +4,11 @@ set -e
 
 ENVIRONMENT="${1:-docker}"
 RUN_ID="${2:-1}"
+OPERATION="${3:-write}"
+ACCESS_MODE="${4:-seq}"
 
 RESULT_DIR="/benchmark/results"
-RESULT_FILE="${RESULT_DIR}/memory_results.csv"
+RESULT_FILE="${RESULT_DIR}/memory_${OPERATION}_${ACCESS_MODE}_results.csv"
 LOG_FILE="/tmp/memory_run.log"
 
 mkdir -p "${RESULT_DIR}"
@@ -27,18 +29,18 @@ echo "Run         : ${RUN_ID}"
 echo "CPU         : ${CPU_MODEL}"
 echo "Visible CPU : ${CPU_VISIBLE}"
 echo "Threads     : 4"
-echo "Operation   : write"
-echo "Access mode : sequential"
+echo "Operation   : ${OPERATION}"
+echo "Access mode : ${ACCESS_MODE}"
 echo "Block size  : 1 MiB"
 echo "Total size  : 4 GiB"
 echo "=========================================="
 
-sysbench memory --memory-block-size=1M --memory-total-size=4G --memory-oper=write --memory-access-mode=seq --threads=4 run | tee "${LOG_FILE}"
+sysbench memory --memory-block-size=1M --memory-total-size=4G --memory-oper="${OPERATION}" --memory-access-mode="${ACCESS_MODE}" --threads=4 run | tee "${LOG_FILE}"
 
 THROUGHPUT=$(grep "MiB/sec" "${LOG_FILE}" | tail -1 | sed -E 's/.*\(([0-9.]+) MiB\/sec\).*/\1/')
 TOTAL_TIME=$(grep "total time:" "${LOG_FILE}" | awk '{print $3}' | sed 's/s//')
 
-echo "${TIMESTAMP},${ENVIRONMENT},${RUN_ID},\"${CPU_MODEL}\",${CPU_VISIBLE},4,write,seq,1M,4G,${THROUGHPUT},${TOTAL_TIME}" >> "${RESULT_FILE}"
+echo "${TIMESTAMP},${ENVIRONMENT},${RUN_ID},\"${CPU_MODEL}\",${CPU_VISIBLE},4,${OPERATION},${ACCESS_MODE},1M,4G,${THROUGHPUT},${TOTAL_TIME}" >> "${RESULT_FILE}"
 
 echo ""
 echo "Result:"

@@ -1,0 +1,6 @@
+timestamp,environment,run_id,cpu_model,cpu_count,threads,operation,access_mode,block_size,total_size,throughput_mib_per_sec,total_time_seconds
+2026-09-02T06:29:30Z,vm,1,"Intel(R) Core(TM) i9-14900KF",4,4,read,seq,1M,4G,224157.61,0.0175
+2026-09-02T06:57:12Z,vm,2,"Intel(R) Core(TM) i9-14900KF",4,4,read,seq,1M,4G,226339.87,0.0172
+2026-09-02T06:57:45Z,vm,3,"Intel(R) Core(TM) i9-14900KF",4,4,read,seq,1M,4G,222740.52,0.0176
+2026-09-02T06:58:18Z,vm,4,"Intel(R) Core(TM) i9-14900KF",4,4,read,seq,1M,4G,203538.22,0.0193
+2026-09-02T06:59:14Z,vm,5,"Intel(R) Core(TM) i9-14900KF",4,4,read,seq,1M,4G,188131.15,0.0210
