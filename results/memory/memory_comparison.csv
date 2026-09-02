@@ -1,0 +1,4 @@
+metric,value
+VM mean throughput (MiB/s),111929.59
+Docker mean throughput (MiB/s),128052.706
+Docker difference vs VM (%),14.40469495153159

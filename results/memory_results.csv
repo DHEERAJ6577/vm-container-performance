@@ -1,0 +1,6 @@
+﻿timestamp,environment,run_id,cpu_model,cpu_visible,threads,operation,access_mode,block_size,total_size,throughput_mib_per_sec,total_time_seconds
+2026-09-02T05:28:47Z,docker,1,"Intel(R) Core(TM) i9-14900KF",32,4,write,seq,1M,4G,130064.19,0.0307
+2026-09-02T05:29:33Z,docker,2,"Intel(R) Core(TM) i9-14900KF",32,4,write,seq,1M,4G,129146.42,0.0309
+2026-09-02T05:32:11Z,docker,3,"Intel(R) Core(TM) i9-14900KF",32,4,write,seq,1M,4G,121460.46,0.0330
+2026-09-02T05:32:43Z,docker,4,"Intel(R) Core(TM) i9-14900KF",32,4,write,seq,1M,4G,128869.68,0.0310
+2026-09-02T05:33:06Z,docker,5,"Intel(R) Core(TM) i9-14900KF",32,4,write,seq,1M,4G,130722.78,0.0306
